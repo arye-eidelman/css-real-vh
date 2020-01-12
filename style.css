@@ -1,22 +1,24 @@
-
 :root {
   --header-height: 45px;
+  --navigation-slider-width: 70px;
 }
 
 header {
-  height: var(--header-height, 50px);
+  height: 45px;
+  height: var(--header-height, 45px);
   position: sticky;
   top: 0;
   z-index: 200;
 }
 
-#main-navigation:not(.--open)  {
+#main-navigation:not(.--open) {
   display: none;
 }
 
-#main-navigation.--open{
+#main-navigation.--open {
   position: fixed;
-  height: calc(100vh - var(--header-height, 50px));
+  height: calc(100vh - 45px);
+  height: calc(100vh - var(--header-height, 45px));
   /* top: var(--header-height, 50px); */
   /* bottom: 0; */
   width: 100vw;
@@ -36,10 +38,12 @@ header {
 }
 
 #navigation-slider {
-  width: 60px;
+  width: 70px;
+  width: var(--navigation-slider-width, 70px);
   position: fixed;
   overflow-y: scroll;
-  height: calc(100vh - var(--header-height, 50px));
+  height: calc(100vh - 45px);
+  height: calc(100vh - var(--header-height, 45px));
   /* top: var(--header-height, 50px); */
   /* bottom: 0; */
 }
@@ -52,5 +56,7 @@ header {
 }
 
 main {
-  margin-left: 68px;
+  margin-left: 78px;
+  margin-left: calc(70px + 8px);
+  margin-left: calc(var(--navigation-slider-width, 70px) + 8px);
 }
