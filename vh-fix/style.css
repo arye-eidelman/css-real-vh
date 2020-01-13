@@ -1,0 +1,64 @@
+:root {
+  --header-height: 45px;
+  --navigation-slider-width: 70px;
+}
+
+header {
+  height: 45px;
+  height: var(--header-height, 45px);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+#main-navigation:not(.--open) {
+  display: none;
+}
+
+#main-navigation.--open {
+  position: fixed;
+  /* height: calc(100vh - 45px); */
+  height: calc((var(--real-vh) * 100) - var(--header-height, 45px));
+  /* top: var(--header-height, 50px); */
+  /* bottom: 0; */
+  width: 100vw;
+  z-index: 100;
+}
+
+#main-navigation {
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-spacer {
+  height: 100%;
+}
+
+.horizontal-spacer {
+  width: 100%;
+}
+
+#navigation-slider {
+  width: 70px;
+  width: var(--navigation-slider-width, 70px);
+  position: fixed;
+  overflow-y: scroll;
+  height: calc(100vh - 45px);
+  height: calc(100vh - var(--header-height, 45px));
+  height: calc((var(--real-vh) * 100) - var(--header-height, 45px));
+  /* top: var(--header-height, 50px); */
+  /* bottom: 0; */
+}
+
+.navigation-slider-item.--selected {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+main {
+  margin-left: 78px;
+  margin-left: calc(70px + 8px);
+  margin-left: calc(var(--navigation-slider-width, 70px) + 8px);
+}
